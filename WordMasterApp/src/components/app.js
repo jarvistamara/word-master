@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Home from './Home';
 import { Dashboard } from './Dashboard';
+
 class App extends Component {
   render() {
     return (

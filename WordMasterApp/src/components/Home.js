@@ -7,7 +7,8 @@ class Home extends Component {
     }
 
     handleSuccessfulAuth = (data) => {
-       this.props.history.push('/dashboard') // redirect the user
+        this.props.handleLogin(data)
+        this.props.history.push('/dashboard') // redirect the user
     }
 
     render() {

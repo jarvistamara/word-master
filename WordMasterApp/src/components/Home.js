@@ -17,13 +17,18 @@ class Home extends Component {
     }
 
     handleSubmit = (e) => {
-        axios.post("https://localhost:4000/registrations", {
+        axios.post("http://localhost:4000/registrations", {
             user: {
                 email: this.state.email,
                 password: this.state.password,
                 password_confirmation: this.state.password_confirmation
             }
-        }, )
+        }, {withCredentials: true}) // tells the API that it is okay to set cookie in client
+        .then(response => {
+            console.log('registation response', response)
+        }).catch(error => {
+            console.log('registration error', error)
+        })
         e.preventDefault()
     }
 

@@ -1,11 +1,12 @@
 class SessionsController < ApplicationController
     include CurrentUserConcern
 
-# Makes Post request
+    # Makes Post request
 
     def create
         # Allows for frontend to send a wrapped up user object
-        user = User.find_by(email: params["user"]["email"])
+        user = User
+        .find_by(email: params["user"]["email"])
         # use the given authenticate method provided by rails
         .try(:authenticate, params["user"]["password"])
 
@@ -32,6 +33,7 @@ class SessionsController < ApplicationController
             render json: {
                 logged_in: false
             }
+        end
     end
 
     def logout

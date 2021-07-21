@@ -1,7 +1,7 @@
 module CurrentUserConcern
     extend ActiveSupport::Concern
 
-    include do
+    included do
         before_action :set_current_user
     end
 
@@ -10,3 +10,4 @@ module CurrentUserConcern
             @current_user = User.find(session[:user_id])
         end
     end
+end

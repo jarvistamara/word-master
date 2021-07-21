@@ -22,11 +22,11 @@ class Login extends Component {
             }
         }, {withCredentials: true}) // tells the API that it is okay to set cookie in client
         .then(response => {
-            console.log('res from login', response)
-            // if (response.data.status === 'created') {
+            
+            if (response.data.logged_in) {
 
-            //     this.props.handleSuccessfulAuth(response.data)
-            // }
+                this.props.handleSuccessfulAuth(response.data)
+            }
         }).catch(error => {
             console.log('login error', error)
         })

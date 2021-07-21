@@ -2,11 +2,31 @@ import React, { Component } from 'react'
 import Registration from './auth/Registration'
 
 class Home extends Component {
+    state = {
+        email: '',
+        password: '',
+        password_confirmation: '',
+        registrationErrors: ''
+    }
+
+    handleChange = (e) => {
+        console.log('handle change', e)
+    }
+
+    handleSubmit = (e) => {
+        console.log('form submitted')
+        e.preventDefault()
+    }
+
     render() {
         return (
             <div>
-                <h2>Home</h2>
-                <Registration/>
+                <form onSubmit={this.handleSubmit}>
+                    <input type='email' name = 'email' placeholder = 'Email' value={this.state.email} onChange={this.handleChange} required />
+                    <input type='password' name = 'password' placeholder = 'Password' value={this.state.password} onChange={this.handleChange} required />
+                    <input type='password' name = 'password_confirmation' placeholder = 'Password Confirmation' value={this.state.password_confirmation} onChange={this.handleChange} required />
+                    <button type='submit'>Register</button>
+                </form>
             </div>
         )
     }

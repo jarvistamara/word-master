@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-# Makes Post require
+# Makes Post request
+
     def create
         # Allows for frontend to send a wrapped up user object
         user = User.find_by(email: params["user"]["email"])
@@ -8,14 +9,15 @@ class SessionsController < ApplicationController
 
         if user
             # moment of logged in
-            session[:user_id] = user.user_id 
+            session[:user_id] = user.id 
             render json: {
-                status: created, 
+                status: :created, 
                 logged_in: true,
                 user: user
             }
         else
             render json: { errors: ["Invalid username or password"] }, status: :unauthorized
+        end
     end
 
 end

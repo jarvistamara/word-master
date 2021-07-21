@@ -7,7 +7,7 @@ class Home extends Component {
     }
 
     handleSuccessfulAuth = (data) => {
-       this.props.history.push('/dashboard') 
+       this.props.history.push('/dashboard') // redirect the user
     }
 
     render() {
@@ -15,7 +15,7 @@ class Home extends Component {
             <div>
                 <h1>Home</h1>
                 <h2>Status: {this.props.loggedInStatus}</h2>
-                <Registration/>
+                <Registration handleSuccessfulAuth={this.handleSuccessfulAuth} />
             </div>
         )
     }

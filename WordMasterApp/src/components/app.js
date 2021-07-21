@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Home from './Home';
 import { Dashboard } from './Dashboard';
 
 class App extends Component {
+=======
+
+export default class App extends Component {
+>>>>>>> parent of e7805809 (react file setup)
 =======
 
 export default class App extends Component {

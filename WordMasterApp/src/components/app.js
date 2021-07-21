@@ -12,7 +12,7 @@ class App extends Component {
   handleLogin = (data) => {
     this.setState({
       loggedInStatus: "Logged_In",
-      user: data
+      user: data.user
     })
   }
 

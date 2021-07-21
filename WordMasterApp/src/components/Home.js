@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Registration from './auth/Registration'
+import axios from 'axios'
 
 class Home extends Component {
     state = {
@@ -10,11 +11,19 @@ class Home extends Component {
     }
 
     handleChange = (e) => {
-        console.log('handle change', e)
+        this.setState({
+            [e.target.name]: e.target.value
+        })
     }
 
     handleSubmit = (e) => {
-        console.log('form submitted')
+        axios.post("https://localhost:4000/registrations", {
+            user: {
+                email: this.state.email,
+                password: this.state.password,
+                password_confirmation: this.state.password_confirmation
+            }
+        }, )
         e.preventDefault()
     }
 

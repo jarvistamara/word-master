@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+    include CurrentUserConcern
+
 # Makes Post request
 
     def create
@@ -18,6 +20,23 @@ class SessionsController < ApplicationController
         else
             render json: { errors: ["Invalid username or password"] }, status: :unauthorized
         end
+    end
+
+    def logged_in
+        if @current_user
+            render json: {
+                logged_in: true,
+                user: @current_user
+            }
+        else
+            render json: {
+                logged_in: false
+            }
+    end
+
+    def logout
+        reset_session
+        render json: { status: 200, logged_out: true }
     end
 
 end

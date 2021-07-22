@@ -3,9 +3,6 @@ import Registration from './auth/Registration'
 import Login from './auth/Login'
 
 class Home extends Component {
-    state = {
-
-    }
 
     handleSuccessfulAuth = (data) => {
         this.props.handleLogin(data)

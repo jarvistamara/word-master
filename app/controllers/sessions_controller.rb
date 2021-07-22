@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
     include CurrentUserConcern
+        before_action :set_current_user
+
 
     # Makes Post request
 
